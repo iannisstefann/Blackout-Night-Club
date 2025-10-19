@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blackout — Club & Events</title>
+  <meta name="description" content="Blackout — club de noapte. Evenimente, DJ, rezervări și galerie." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#050406; --accent:#ff2d95; --muted:#9aa0a6; --glass: rgba(255,255,255,0.04);
+      --max-width:1100px; --radius:14px;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,45,149,0.06), transparent),
+                  radial-gradient(900px 400px at 90% 90%, rgba(45,209,255,0.03), transparent),
+                  var(--bg);
+      color:#fff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.35; -webkit-text-size-adjust:100%;
+    }
+    a{color:var(--accent); text-decoration:none}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:var(--max-width);margin:0 auto}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6a2cff);display:flex;align-items:center;justify-content:center;font-weight:900;color:#07070a}
+    nav{display:flex;gap:14px;align-items:center}
+    nav a{padding:8px 12px;border-radius:8px;font-weight:600}
+    nav a:focus{outline:3px solid rgba(255,45,149,0.18)}
+    .cta{background:linear-gradient(90deg,var(--accent),#6a2cff);padding:10px 14px;border-radius:10px;font-weight:700}
+
+    main{max-width:var(--max-width);margin:12px auto;padding:20px}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:stretch}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:28px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(0,0,0,0.6);}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--glass);font-weight:700;color:var(--muted);font-size:13px}
+    h1{font-size:42px;margin:14px 0 6px}
+    p.lead{color:var(--muted);margin:0 0 18px}
+
+    .details{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .pill{background:rgba(255,255,255,0.03);padding:10px 12px;border-radius:10px;font-weight:600}
+
+    .right-panel{display:flex;flex-direction:column;gap:12px}
+    .event-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:12px}
+    .event-card time{display:block;font-weight:700}
+    .tickets{margin-top:8px}
+
+    section{margin-top:28px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .card{background:rgba(255,255,255,0.03);padding:16px;border-radius:12px}
+
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .gallery img{width:100%;height:140px;object-fit:cover;border-radius:10px}
+
+    footer{max-width:var(--max-width);margin:36px auto;padding:18px;color:var(--muted);display:flex;gap:18px;align-items:center;justify-content:space-between}
+
+    /* responsive */
+    @media (max-width:1024px){
+      .hero{grid-template-columns:1fr 360px}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (max-width:760px){
+      header{padding:12px}
+      .hero{grid-template-columns:1fr;}
+      .right-panel{order:2}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .logo{width:46px;height:46px}
+      h1{font-size:32px}
+    }
+
+    /* accessibility helpers */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+    /* simple form styles */
+    form{display:flex;gap:8px}
+    input[type=text],input[type=email]{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 12px;border-radius:10px;color:inherit}
+    button{background:var(--accent);border:none;padding:10px 14px;border-radius:10px;color:#07070a;font-weight:700}
+    button:focus{outline:3px solid rgba(255,45,149,0.18)}
+
+    small{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden>BO</div>
+      <div>
+        <div style="font-weight:900">Blackout</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:2px">Club • Events • DJs</div>
+      </div>
+    </div>
+    <nav aria-label="Meniu principal">
+      <a href="#about">Despre</a>
+      <a href="#events">Evenimente</a>
+      <a href="#gallery">Galerie</a>
+      <a href="#contact" class="cta">Rezervări</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-card">
+        <span class="badge">CLUB NOAPTE</span>
+        <h1>Blackout — petrece noaptea ca la carte</h1>
+        <p class="lead">Muzică electronică, DJ internaționali și atmosferă exclusivă. Sâmbăta e locul unde toată lumea uită ora.</p>
+        <div class="details" role="list">
+          <div class="pill" role="listitem">📍 Str. Exemplu 12, București</div>
+          <div class="pill" role="listitem">⏰ Vineri–Sâmbătă, 22:00–05:00</div>
+          <div class="pill" role="listitem">🔞 Intrare 18+</div>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="cta" href="#events">Următorul eveniment</a>
+          <a href="#contact" style="padding:10px 12px;background:transparent;border-radius:10px;border:1px solid rgba(255,255,255,0.06);font-weight:700">Rezervă masă</a>
+        </div>
+
+        <section id="about" style="margin-top:22px">
+          <h2 style="margin:2px 0 10px">Despre Blackout</h2>
+          <p class="lead">Blackout e un club boutique creat pentru iubitorii de muzică electronică și experiențe premium. Sonorizare profesională, lumini inteligent plasate și vibe autentic underground.</p>
+        </section>
+      </div>
+
+      <aside class="right-panel">
+        <div class="event-card" aria-labelledby="next-title">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div id="next-title" style="font-weight:900">Next: DJ NOVA</div>
+              <small>Saturday, Oct 25 · Doors 22:00</small>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:900">From 80 lei</div>
+              <small>Presale</small>
+            </div>
+          </div>
+          <div class="tickets">
+            <a class="cta" href="#contact">Cumpără bilet</a>
+          </div>
+        </div>
+
+        <div class="card" aria-hidden>
+          <div style="font-weight:800;margin-bottom:8px">Lineup</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <div class="pill">DJ Nova</div>
+            <div class="pill">Luma</div>
+            <div class="pill">K-Beat</div>
+            <div class="pill">Guest</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="font-weight:800;margin-bottom:8px">Newsletter</div>
+          <form action="https://formspree.io/f/your-form-id" method="POST" aria-label="Formular abonare newsletter">
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="adresa@exemplu.com" required>
+            <button type="submit">Abonează-te</button>
+          </form>
+          <small>Vom trimite doar info despre evenimente. Poți renunța oricând.</small>
+        </div>
+      </aside>
+    </section>
+
+    <section id="events">
+      <h2 style="margin:6px 0 10px">Evenimente viitoare</h2>
+      <div class="grid-3">
+        <div class="card">
+          <strong>Oct 25 — DJ NOVA</strong>
+          <p class="lead">Techno set intens + visual show.</p>
+          <a href="#contact">Detalii & bilete →</a>
+        </div>
+        <div class="card">
+          <strong>Nov 1 — LUMA</strong>
+          <p class="lead">Deep house night.</p>
+          <a href="#contact">Detalii & bilete →</a>
+        </div>
+        <div class="card">
+          <strong>Nov 8 — OPEN FORMAT</strong>
+          <p class="lead">Guest DJs + party vibes.</p>
+          <a href="#contact">Detalii & bilete →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" style="margin-top:22px">
+      <h2 style="margin:6px 0 10px">Galerie</h2>
+      <div class="gallery" aria-hidden>
+        <!-- images are placeholders; înlocuiește cu poze reale când ai -->
+        <img alt="O noapte la Blackout – ringul de dans" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%2306090a'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='Arial' font-size='24'>Imagine placeholder</text></svg>">
+        <img alt="Public dansând" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%23111111'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='Arial' font-size='24'>Imagine placeholder</text></svg>">
+        <img alt="DJ la pupitru" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%230a0a0a'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='Arial' font-size='24'>Imagine placeholder</text></svg>">
+        <img alt="Luminile clubului" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='100%' height='100%' fill='%230b0b0b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='Arial' font-size='24'>Imagine placeholder</text></svg>">
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:26px">
+      <h2>Contact & rezervări</h2>
+      <div class="grid-2" style="margin-top:12px">
+        <div class="card">
+          <strong>Rezervări VIP / Masă</strong>
+          <p class="lead">Trimite-ne un mesaj și-ți rezervăm locul.</p>
+          <p><strong>Email:</strong> <a href="mailto:rezervari@blackout.example">rezervari@blackout.example</a></p>
+          <p><strong>Telefon:</strong> <a href="tel:+40700000000">+40 700 000 000</a></p>
+        </div>
+        <div class="card">
+          <strong>Trimite un mesaj</strong>
+          <form action="mailto:rezervari@blackout.example" method="POST" enctype="text/plain">
+            <label class="sr-only" for="name">Nume</label>
+            <input id="name" type="text" name="name" placeholder="Nume complet" required>
+            <label class="sr-only" for="msg">Mesaj</label>
+            <input id="msg" type="text" name="message" placeholder="Vă rugăm detaliați cererea" required>
+            <div style="margin-top:8px"><button type="submit">Trimite</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>© <strong>Blackout</strong> — All rights reserved</div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <small>Follow</small>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+    </div>
+  </footer>
+
+</body>
+</html>
